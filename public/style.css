@@ -1,0 +1,82 @@
+/* body {
+    background-color: gray;
+  } */
+  body {font-family: Arial, Helvetica, sans-serif;}  
+
+  .myTable{
+      margin-top: 1rem;
+  }
+  .header1{
+      margin-top: 5rem;
+  }
+  .container {
+      margin-top: 0px;
+      padding-top: 20px;
+      /*background-color: #beb*/
+  }
+  .vertical {
+      display: inline-block;
+      width: 50%;
+      height: 300px;
+      -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+      transform: rotate(-180deg);
+  }
+  .vertical {
+      box-shadow: inset 0px 4px 6px #ccc;
+  }
+  .progress-bar {
+      box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
+  }
+  
+  .bodyBack{
+      background-color: #c0c0c0;
+  }
+  
+  .logHead{border: 3px solid #f1f1f1;}
+  
+  .loginForm {border: 3px solid #f1f1f1;}
+  
+  .username, .password {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .loginButton {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .loginButton:hover {
+    opacity: 0.7;
+  }
+  
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 44px 0 12px 0;
+  }
+  
+  img.avatar {
+    width: 20%;
+    height: 40%;
+    border-radius: 50%;
+  }
+  
+  .loginContainer {
+    padding: 16px;
+    width: 100%;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }

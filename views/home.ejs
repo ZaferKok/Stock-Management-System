@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 3rem;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/main">Stock Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <form class="dropdown" action="/dropdown" method="get" enctype="application/x-www-form-urlencoded">
+                        <div class="dropdown" style="margin-left: 1rem;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Equipment
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item active" href="/ram">RAM</a></li>
+                                <li><a class="dropdown-item" href="/drive">SSD</a></li>
+                                <li><a class="dropdown-item" href="/screen">Screen</a></li>
+                                <li><a class="dropdown-item" href="/nvidia">Graphic Card</a></li>
+                                <li><a class="dropdown-item" href="/cpu">Processor</a></li>
+                                <li><a class="dropdown-item" href="/asus">Motherboard</a></li>
+                                <li><a class="dropdown-item" href="/headset">Headset</a></li>
+                                <li><a class="dropdown-item" href="/keyboard">Keyboard</a></li>
+                                <li><a class="dropdown-item" href="/webcam">WebCam</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/">All</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                    <form class="d-flex" action="/logout" method="get" enctype="application/x-www-form-urlencoded">
+                        <button style="margin-left: 1rem; border: none;" class="btn btn-outline-info" type="logout">Log Out</button>
+                    </form>
+
+                </ul>
+                <form class="d-flex" action="/search" method="get" enctype="application/x-www-form-urlencoded">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        name="searchBox">
+                    <button class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container header1">
+        <div class="row" style="width: 80rem;">
+            <div class="col-6">
+                <h1>Products List:</h1>
+            </div>
+            <div class="col-6 align-self-center" style="text-align: right; padding-right: 0px;">
+                <a href="/add">
+                    <button class="add btn btn-outline-dark" style="padding: 15px; font-weight: bolder;">ADD NEW PRODUCT</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="container myTable">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-info table-dark" style="width: 80rem; margin-top: 0rem; padding-top: 0px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-2">NAME</th>
+                            <th scope="col" class="col-1" style="padding-left: 12px;">PRICE</th>
+                            <th scope="col" class="col-1" style="padding-left: 0px;">QUANTITY</th>
+                            <th scope="col" class="col-1" style="text-align: center; padding-right: 30px;">TYPE</th>
+                            <th scope="col" class="col-2" style="padding-left: 12px;">PRODUCT NUMBER</th>
+                            <th scope="col" class="col-3" style="text-align: center; padding-right: 55px;">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% products.forEach( (product)=> { %>
+                            <tr style="object-fit: fill;">
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    <%= product.price %> €
+                                </td>
+                                <td style="padding-left: 2rem;">
+                                    <%= product.quantity %>
+                                </td>
+                                <td style="text-align: center; padding-right: 25px;">
+                                    <%= product.type %>
+                                </td>
+                                <td scope="row" style="padding-left: 3rem;">
+                                    <%= product.id %>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-1" style="margin-right: 5rem;">
+                                            <button style="padding: 0px; width: 6rem;" class="btn btn-outline-success">
+                                                <a style="color: rgb(0, 255, 13);" class="nav-link active"
+                                                    href="/view/<%= product.id %>">
+                                                    <i class="bi bi-eye-fill"></i> view
+                                                </a>
+                                            </button>
+                                        </div>
+                                        <div class="col-1" style="margin-right: 5rem;">
+                                            <button style="padding: 0px; width: 6rem;" class="btn btn-outline-warning">
+                                                <a style="color: rgb(255, 251, 0);" class="nav-link active"
+                                                    href="/edit/<%= product.id %>">
+                                                    <i class="bi bi-pencil-fill"></i> edit
+                                                </a>
+                                            </button>
+                                        </div>
+                                        <div class="col-1" style="margin-right: 3rem;">
+                                            <form action="/deleteProduct/<%= product.id %>" method="POST"
+                                                enctype="application/x-www-form-urlencoded">
+                                                <button style="padding: 8px; width: 6rem;"
+                                                    class="btn btn-outline-danger">
+                                                    <i class="bi bi-trash3-fill"></i> delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
