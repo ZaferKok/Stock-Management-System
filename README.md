@@ -23,7 +23,7 @@ JavaScript Projekt für die Weiterbildungsmaßnahme bei Alfatraining.
 ```bash
 git clone https://github.com/ZaferKok/Stock-Management-System.git
 
-# /Accessories
+# /Stock-Management-System!
 im Bedarfsfall:
 npm install express
 npm install mysql
